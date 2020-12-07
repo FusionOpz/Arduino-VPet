@@ -4,16 +4,25 @@
 /* License: MIT                                  */
 /*************************************************/
 
+/**** Includes ***********************************/
 // We require the Adafruit GFX and ST7735
 //  as well as the SPI libraries.
 #include <Adafruit_GFX.h>
 #include <Adafruit_ST7735.h>
 #include <SPI.h>
 
-/*** Defines *************************************/
+/**** Defines ************************************/
 // DEBUG, this enables the serial monitor
 #define DEBUG
 
+/**** Hook Up Guide ******************************/
+/* The following pins are used for the screen    */
+/*  D8      = CS                                 */
+/*  D9      = RST                                */
+/*  D10     = DC                                 */
+/*  D11     = MOSI                               */
+/*  D13     = SCLK (Clock)                       */
+/*************************************************/
 // TFT, we use a 1.44" 128x128 Color TFT w/ SPI
 // https://www.amazon.ca/gp/product/B07KPYKP9C/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1
 #define TFT_CS          8
@@ -30,6 +39,12 @@
 // SPEAKER, Yes we have a spaker
 // Uses Digital, may switch to Analog
 #define SPEAKER         6
+
+// LED, yes we will have LED's, eventually
+// Uses analog pins, also RGB LED's, they will all get tied together.
+#define LED_R           0 // A0
+#define LED_B           1 // A1
+#define LED_G           2 // A2
 
 Adafruit_ST7735 display = Adafruit_ST7735(TFT_CS, TFT_DC, TFT_RST);
 
@@ -51,6 +66,9 @@ void setup()
 
     #ifdef DEBUG
         Serial.println(F("Initialized"));
+    #endif
+
+
 	
 }
 
